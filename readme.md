@@ -1,5 +1,9 @@
 # Multithreaded Binance Data Fetcher Documentation
 
+This file is created based on a fetching to different endpoint from the official **Binance API**. **THIS DOES NOT** count towards the **RATE LIMITING** and it's a LOT faster than the traditional method. 
+>[!TIP]
+>This can only fetch the **last closed DAY**, It won't fetch data from the current day
+
 This guide will explain how to use the multithreaded Binance data fetcher, including installation instructions, usage, and an overview of the output data formats (JSON and CSV). Additionally, we will showcase examples of how the output data is formatted.
 
 ## Prerequisites
@@ -22,9 +26,32 @@ pip install requests
 
    - `DATA_DIR`: The directory where the fetched data will be saved.
    - `START_DAY` and `END_DAY`: The date range for fetching data in the format "YYYY-MM-DD".
-   - `INTERVALS`: The time intervals for the candlestick data (e.g., `"1m"`, `"30m"`, `"1h"`).
+   - `INTERVALS`: The time intervals for the candlestick date
    - `OUTPUT_FORMAT`: Set to `'json'` or `'csv'` depending on how you want the data saved.
    - `NUM_THREADS`: The number of threads to use for fetching data concurrently.
+
+**Note:**
+
+**Valid intervals:**
+`m -> minutes; h -> hours; d -> days; w -> weeks; M -> months`
+```
+1m
+3m
+5m
+15m
+30m
+1h
+2h
+4h
+6h
+8h
+12h
+1d
+3d
+1w
+1M
+```
+
 
 3. **Run the script**:
 
